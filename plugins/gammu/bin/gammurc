@@ -1,0 +1,3 @@
+[gammu]
+device = com12:
+connection = at460800
