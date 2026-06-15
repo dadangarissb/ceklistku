@@ -14,11 +14,11 @@ class M_login extends CI_Model{
         // }
 	}	
 
-	function cek_login_satpam($data){		
+	function cek_login_user($data){		
 		//return $this->db->get_where($table,$where);
-		$this->db->where('id_satpam', $data['id_user']);
+		$this->db->where('username', $data['id_user']);
 		$this->db->where('password', $data['password']);
-		$query=$this->db->get('satpam');
+		$query=$this->db->get('user');
 		return $query;
 		// if ($query->num_rows() > 0) {
         //     return $query;

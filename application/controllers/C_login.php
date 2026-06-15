@@ -14,7 +14,7 @@ class C_login extends CI_Controller {
     }
 
     public function index() 
-    {
+    {  
         $this->load->view('v_login');
 
     }
@@ -39,7 +39,7 @@ class C_login extends CI_Controller {
         
         //Cek dulu data di database admin
         $cek_data_admin = $this->M_login->cek_login_admin($data);
-        $cek_data_satpam = $this->M_login->cek_login_satpam($data);
+        // $cek_data_satpam = $this->M_login->cek_login_satpam($data);
 
         // Cek apakah user ditemukan
         if ($cek_data_admin->num_rows() > 0) {
@@ -51,7 +51,6 @@ class C_login extends CI_Controller {
             $nama_user = $admin->nama_user;
             $jabatan   = $admin->jabatan;
             $id_unit   = $admin->id_unit;
-            $role      = $admin->role;
             $status    = $admin->status;
 
             // Contoh: simpan data ke session
@@ -60,33 +59,27 @@ class C_login extends CI_Controller {
                 'nama_user' => $nama_user,
                 'jabatan'   => $jabatan,
                 'id_unit'   => $id_unit,
-                'role'      => $role,
                 'status'    => $status
             ]);
 
             redirect(base_url("c_dashboard_admin"));
 
         }
-        elseif($cek_data_satpam->num_rows() > 0)
+        elseif(($cek_data_user = $this->M_login->cek_login_user($data))->num_rows() > 0)
             {
                 // Ambil 1 baris data user
-                $satpam = $cek_data_satpam->row();
+                $user = $cek_data_user->row();
 
 
                 $this->session->set_userdata([
-                    'id_satpam'   => $satpam->id_satpam,
-                    'nama_satpam' => $satpam->nama_satpam,
-                    'id_unit'     => $satpam->id_unit,
+                    'username'      => $user->username,
+                    'nama_user'     => $user->nama_user,
+                    'id_unit'       => $user->id_unit,
+                    // 'id_lokasi'     => $user->id_lokasi,
+                    'id_kategori_pekerjaan'     => $user->id_kategori_pekerjaan,
                 ]);
 
-                // echo '<pre>';
-                // print_r($this->session->userdata());
-                // echo '</pre>';
-
-                // tutup session dengan aman
-                // session_write_close();
-
-                redirect(base_url("C_dashboard_satpam"));
+                redirect(base_url("C_dashboard_user"));
 
             }
         else{

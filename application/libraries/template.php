@@ -1,7 +1,5 @@
-
-
 <?php
-class template {
+class Template {
 	
 	protected $_ci;
 	
@@ -23,17 +21,17 @@ class template {
 		$this->_ci->load->view('/template.php',$data);
 	}
 
-	function satpam($template,$data=null){
+	function user($template,$data=null){
 		$data['_content']=
 		$this->_ci->load->view($template,$data,true);
 		//$data['_user-panel']=
 		//$this->_ci->load->view('template/user_panel',$data,true);
 		$data['_header']=
-		$this->_ci->load->view('template_satpam/header',$data,true);
+		$this->_ci->load->view('template_user/header',$data,true);
 		//$data['_section']=
 		//$this->_ci->load->view('template/section',$data,true);
 		$data['_sidebar']=
-		$this->_ci->load->view('template_satpam/sidebar',$data,true);
-		$this->_ci->load->view('/template_satpam.php',$data);
+		$this->_ci->load->view('template_user/sidebar',$data,true);
+		$this->_ci->load->view('/template_user.php',$data);
 	}
 }

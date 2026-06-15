@@ -14,7 +14,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Admin Dinkop Surakarta</title>
+  <title>Ceklist</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   
@@ -90,7 +90,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Main Header -->
   <header class="main-header">
         <!-- Logo -->
-        <a href="<?=base_url('#');?>" class="logo"><span class="logo-mini"><b>UMKM</b></span><span class="logo-lg"><b>Admin Dinkop</b></span></a>
+        <a href="<?=base_url('#');?>" class="logo"><span class="logo-mini"><b></b></span><span class="logo-lg"><b>CekList</b></span></a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
           <!-- Sidebar toggle button-->
@@ -107,14 +107,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <span class="hidden-xs">Admin</span>
+                  <span class="hidden-xs"><?php echo $this->session->userdata('nama_user'); ?></span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
                     <img src="<?=base_url('assets/dist/img/pemkot.jpg');?>" class="img-circle" alt="User Image" />
                     <p>
-                      Dinas Koperasi & UMKM Kota Surakarta
+                      CekList
                       <small></small>
                     </p>
                   </li>
@@ -186,7 +186,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="pull-right hidden-xs">
           Halaman ini dimuat dalam {elapsed_time} detik, Penggunaan memory {memory_usage}
         </div>
-        <strong>Copyright &copy; 2016 <a href="http://d3ti.mipa.uns.ac.id/" target="_blank">D3 Teknik Informatika UNS</a>.</strong> All rights reserved.
+        <strong> <a href="" target="_blank">CekList</a></strong>
       </footer>
 </div>
 <!-- ./wrapper -->
